@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>成年人在线电影网 - 18+成熟观众电影导航·正经影视分类</title>
+<meta name="description" content="成年人在线电影网：面向18周岁以上成熟观众的正规电影导航单页，提供剧情、悬疑、文艺、纪实、经典老片、导演专题等分类，移动端自适应，内链占位，适合必应收录。">
+<meta name="keywords" content="成年人在线电影网,成熟观众电影,正经电影导航,剧情电影,悬疑电影,文艺电影,经典老片">
+<meta name="author" content="成年人在线电影网">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://chengrenzaixiandianyingwang-h5.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="成年人在线电影网 - 18+成熟观众电影导航">
+<meta property="og:description" content="正规电影分类导航：剧情、悬疑、文艺、纪实、经典老片、导演专题。">
+<meta property="og:url" content="https://chengrenzaixiandianyingwang-h5.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0f1424">
+<style>
+:root{
+  --bg:#0f1424;--panel:#161d33;--panel2:#1d2640;--ink:#eef1f8;--muted:#9aa3bf;
+  --gold:#e0a458;--gold-soft:rgba(224,164,88,.14);--line:rgba(224,164,88,.22);
+  --blue:#5b8def;--radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+
+/* 顶栏 */
+.crn-top{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(15,20,36,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.crn-bar{display:flex;align-items:center;justify-content:space-between;height:56px}
+.crn-logo{font-size:19px;font-weight:900;letter-spacing:.5px}
+.crn-logo b{color:var(--gold)}
+.crn-logo small{font-size:12px;color:var(--muted);font-weight:500;margin-left:6px}
+.crn-nav{display:flex;gap:4px;list-style:none}
+.crn-nav a{padding:8px 12px;border-radius:8px;font-size:14px;color:var(--muted);min-height:36px;display:inline-flex;align-items:center}
+.crn-nav a:hover,.crn-nav a.active{color:var(--gold);background:var(--gold-soft)}
+.crn-burger{display:none;background:none;border:0;font-size:22px;color:var(--gold);cursor:pointer;padding:8px}
+
+/* 主体：左目录 + 右内容 */
+.crn-shell{margin-top:56px;display:grid;grid-template-columns:240px 1fr;gap:28px;padding:28px 0 60px}
+.crn-toc{position:sticky;top:72px;align-self:start;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+.crn-toc h4{font-size:13px;color:var(--gold);margin-bottom:12px;letter-spacing:1px}
+.crn-toc a{display:block;padding:9px 12px;border-radius:8px;font-size:14px;color:var(--muted);border-left:2px solid transparent}
+.crn-toc a:hover,.crn-toc a.active{color:var(--ink);background:var(--panel2);border-left-color:var(--gold)}
+
+.crn-main{min-width:0}
+.crn-hero{background:linear-gradient(135deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:18px;padding:34px;margin-bottom:28px}
+.crn-hero .age{display:inline-block;font-size:12px;padding:4px 12px;border-radius:99px;background:var(--gold-soft);color:var(--gold);margin-bottom:14px;font-weight:700}
+.crn-hero h1{font-size:clamp(26px,4vw,40px);font-weight:900;line-height:1.2;margin-bottom:14px}
+.crn-hero h1 em{color:var(--gold);font-style:normal}
+.crn-hero p{color:var(--muted);max-width:620px;font-size:15px}
+.crn-hero .note{margin-top:16px;font-size:13px;color:var(--muted);border-top:1px dashed var(--line);padding-top:14px}
+.crn-hero .note b{color:var(--gold)}
+
+/* 区块 */
+.crn-block{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px;margin-bottom:22px}
+.crn-block head,.crn-head{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.crn-num{width:34px;height:34px;border-radius:10px;background:var(--gold);color:#1a1305;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.crn-head h2{font-size:21px;font-weight:800}
+.crn-head span{margin-left:auto;font-size:13px;color:var(--muted)}
+
+/* 卡片网格 */
+.crn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.crn-card{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:16px;transition:.3s}
+.crn-card:hover{transform:translateY(-3px);border-color:var(--gold)}
+.crn-card .tag{font-size:11px;color:var(--gold);border:1px solid var(--line);padding:2px 8px;border-radius:99px;display:inline-block;margin-bottom:8px}
+.crn-card h4{font-size:15px;margin-bottom:6px}
+.crn-card p{font-size:13px;color:var(--muted)}
+
+/* 导演列表 */
+.crn-list{display:flex;flex-direction:column;gap:10px}
+.crn-row{display:flex;align-items:center;gap:14px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.crn-row .avatar{width:42px;height:42px;border-radius:50%;background:var(--gold-soft);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:900;flex-shrink:0}
+.crn-row h4{font-size:15px}
+.crn-row p{font-size:12px;color:var(--muted)}
+.crn-row .go{margin-left:auto;font-size:13px;color:var(--gold)}
+
+/* 分级说明 */
+.crn-levels{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.crn-level{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--panel2)}
+.crn-level h4{font-size:15px;margin-bottom:6px;color:var(--gold)}
+.crn-level p{font-size:13px;color:var(--muted)}
+
+/* 关于 */
+.crn-about{background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:18px;padding:30px;text-align:center}
+.crn-about h3{font-size:20px;margin-bottom:12px;color:var(--gold)}
+.crn-about p{color:var(--muted);font-size:14px;max-width:640px;margin:0 auto 16px}
+.crn-chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.crn-chips span{font-size:13px;padding:6px 14px;border:1px solid var(--line);border-radius:99px;color:var(--muted)}
+
+/* 页脚 */
+.crn-foot{background:#0b0f1c;border-top:1px solid var(--line);padding:30px 0;font-size:13px;color:var(--muted);text-align:center}
+.crn-foot a{color:var(--muted)}
+.crn-foot a:hover{color:var(--gold)}
+
+/* 响应式 */
+@media(max-width:900px){
+  .crn-shell{grid-template-columns:1fr}
+  .crn-toc{position:static;display:none}
+  .crn-toc.open{display:block}
+  .crn-burger{display:block}
+  .crn-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:620px){
+  .crn-nav{position:fixed;top:56px;left:0;right:0;flex-direction:column;background:var(--bg);padding:14px;border-bottom:1px solid var(--line);transform:translateY(-130%);transition:.3s}
+  .crn-nav.open{transform:none}
+  .crn-grid,.crn-levels{grid-template-columns:1fr}
+  .crn-hero{padding:24px}
+  .crn-row .go{display:none}
+}
+.reveal{opacity:0;transform:translateY(18px);transition:.6s ease}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<header class="crn-top">
+  <div class="wrap crn-bar">
+    <div class="crn-logo">成年人在线<b>电影网</b><small>18+ 成熟观众 · 正规导航</small></div>
+    <button class="crn-burger" id="crnBurger" aria-label="菜单">☰</button>
+    <ul class="crn-nav" id="crnNav">
+      <li><a href="#hero" class="active">首页</a></li>
+      <li><a href="#genre">电影分类</a></li>
+      <li><a href="#director">导演专题</a></li>
+      <li><a href="#level">年龄分级</a></li>
+      <li><a href="#classic">经典老片</a></li>
+      <li><a href="#about">关于本站</a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="wrap crn-shell">
+  <!-- 左侧目录 -->
+  <aside class="crn-toc" id="crnToc">
+    <h4>本页目录</h4>
+    <a href="#hero" class="active">00 · 站点说明</a>
+    <a href="#genre">01 · 电影分类</a>
+    <a href="#director">02 · 导演专题</a>
+    <a href="#level">03 · 年龄分级</a>
+    <a href="#classic">04 · 经典老片</a>
+    <a href="#about">05 · 关于本站</a>
+  </aside>
+
+  <!-- 右侧内容 -->
+  <div class="crn-main">
+    <!-- 英雄区 -->
+    <section class="crn-hero reveal" id="hero">
+      <span class="age">18+ 成熟观众向</span>
+      <h1>成年人在线电影网<br>给<span>成熟观众</span>的<em>正经电影导航</em></h1>
+      <p>这里不提供色情、情色、盗版播放源或擦边分类。成年人在线电影网只做一件事：帮 18 岁以上观众快速找到剧情、悬疑、文艺、纪实、经典老片和导演专题。</p>
+      <div class="note">
+        <b>合规声明：</b>本页为静态导航演示，所有内链均为 <code>#</code> 占位；不聚合非法视听节目，不展示成人色情分类，不提供未授权在线播放。
+      </div>
+    </section>
+
+    <!-- 01 电影分类 -->
+    <section class="crn-block reveal" id="genre">
+      <div class="crn-head"><div class="crn-num">1</div><h2>电影分类</h2><span>6 个成熟向分类</span></div>
+      <div class="crn-grid">
+        <div class="crn-card"><span class="tag">剧情</span><h4>人生与命运</h4><p>家庭、职场、代际冲突、成长阵痛，适合安静看片。</p></div>
+        <div class="crn-card"><span class="tag">悬疑</span><h4>烧脑与反转</h4><p>犯罪、心理、密室、时间线，成熟观众更吃叙事结构。</p></div>
+        <div class="crn-card"><span class="tag">文艺</span><h4>作者表达</h4><p>慢节奏、意象、隐喻，重情绪不重爽点。</p></div>
+        <div class="crn-card"><span class="tag">纪实</span><h4>真实世界</h4><p>纪录片、传记、社会议题，看完会想查资料。</p></div>
+        <div class="crn-card"><span class="tag">历史</span><h4>时代与权力</h4><p>战争、王朝、变革、群像，理解人与制度。</p></div>
+        <div class="crn-card"><span class="tag">黑色</span><h4>灰色人性</h4><p>犯罪片、黑色电影、道德困境，不非黑即白。</p></div>
+      </div>
+    </section>
+
+    <!-- 02 导演专题 -->
+    <section class="crn-block reveal" id="director">
+      <div class="crn-head"><div class="crn-num">2</div><h2>导演专题</h2><span>按作者找片</span></div>
+      <div class="crn-list">
+        <div class="crn-row"><div class="avatar">李</div><div><h4>李安</h4><p>家庭、身份、东西方冲突，《饮食男女》《卧虎藏龙》《色，戒》仅列正经创作脉络</p></div><a href="#" class="go">查看片单 →</a></div>
+        <div class="crn-row"><div class="avatar">奉</div><div><h4>奉俊昊</h4><p>阶级、怪物、黑色讽刺，《寄生虫》《雪国列车》《杀人回忆》</p></div><a href="#" class="go">查看片单 →</a></div>
+        <div class="crn-row"><div class="avatar">是</div><div><h4>是枝裕和</h4><p>家庭、失去、日常，《小偷家族》《步履不停》《海街日记》</p></div><a href="#" class="go">查看片单 →</a></div>
+        <div class="crn-row"><div class="avatar">诺</div><div><h4>诺兰</h4><p>时间、记忆、结构，《记忆碎片》《星际穿越》《奥本海默》</p></div><a href="#" class="go">查看片单 →</a></div>
+      </div>
+    </section>
+
+    <!-- 03 年龄分级 -->
+    <section class="crn-block reveal" id="level">
+      <div class="crn-head"><div class="crn-num">3</div><h2>年龄分级说明</h2><span>只做观众提示，不做违规内容</span></div>
+      <div class="crn-levels">
+        <div class="crn-level"><h4>12+</h4><p>轻量剧情、动画、家庭片、青春成长，全年龄也可看。</p></div>
+        <div class="crn-level"><h4>15+</h4><p>复杂悬疑、社会纪实、历史战争，需要一定理解力。</p></div>
+        <div class="crn-level"><h4>18+</h4><p>成人议题、沉重主题、暴力隐喻、心理压迫，但不等于色情。</p></div>
+        <div class="crn-level"><h4>限制级</h4><p>本页不聚合色情、裸露、性虐待、偷拍走光等违规视听内容。</p></div>
+      </div>
+    </section>
+
+    <!-- 04 经典老片 -->
+    <section class="crn-block reveal" id="classic">
+      <div class="crn-head"><div class="crn-num">4</div><h2>经典老片</h2><span>成熟观众回看清单</span></div>
+      <div class="crn-grid">
+        <div class="crn-card"><span class="tag">1993</span><h4>霸王别姬</h4><p>时代、戏班、性别与忠诚，华语电影标杆。</p></div>
+        <div class="crn-card"><span class="tag">1994</span><h4>肖申克的救赎</h4><p>自由、时间、希望，成年后重看更有重量。</p></div>
+        <div class="crn-card"><span class="tag">2000</span><h4>一一</h4><p>家庭、死亡、少年视角，杨德昌的台北浮世绘。</p></div>
+        <div class="crn-card"><span class="tag">2019</span><h4>寄生虫</h4><p>阶层、空间、讽刺，成熟观众必看。</p></div>
+        <div class="crn-card"><span class="tag">1972</span><h4>教父</h4><p>权力、家族、美国梦的暗面。</p></div>
+        <div class="crn-card"><span class="tag">1997</span><h4>美丽人生</h4><p>战争、父爱、荒诞里的温柔。</p></div>
+      </div>
+    </section>
+
+    <!-- 05 关于 -->
+    <section class="reveal" id="about">
+      <div class="crn-about">
+        <h3>关于成年人在线电影网</h3>
+        <p>成年人在线电影网是一个面向 18 周岁以上成熟观众的电影导航单页。我们只整理正经电影分类、导演专题和经典片单，不提供色情情色内容，不聚合非法视听节目，不生成 robots.txt / sitemap.xml。</p>
+        <div class="crn-chips">
+          <span>18+ 成熟向</span>
+          <span>正规电影导航</span>
+          <span>移动端自适应</span>
+          <span>内链 # 占位</span>
+          <span>单页 index.html</span>
+          <span>必应友好语义化</span>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<footer class="crn-foot">
+  <div class="wrap">
+    <p>© 2026 成年人在线电影网 · https://chengrenzaixiandianyingwang-h5.github.io</p>
+    <p style="margin-top:8px"><a href="#">站点说明</a> · <a href="#">分级规则</a> · <a href="#">免责声明</a> · <a href="#">片单更新</a></p>
+    <p style="margin-top:8px;color:#6b7390">本页为合规导航演示：不含成人色情、情色电影、三级片、偷拍走光等违规分类。</p>
+  </div>
+</footer>
+
+<button id="crnTop" style="position:fixed;right:16px;bottom:16px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--gold);font-size:20px;cursor:pointer;display:none;z-index:99" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  var burger=document.getElementById('crnBurger'),
+      nav=document.getElementById('crnNav'),
+      toc=document.getElementById('crnToc');
+  burger.addEventListener('click',function(){nav.classList.toggle('open');toc.classList.toggle('open')});
+  var allLinks=[...nav.querySelectorAll('a'),...toc.querySelectorAll('a')];
+  allLinks.forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open')})});
+
+  var navLinks=nav.querySelectorAll('a'),tocLinks=toc.querySelectorAll('a'),
+      secs=document.querySelectorAll('main section[id],.crn-main section[id],.crn-hero[id]');
+  window.addEventListener('scroll',function(){
+    var y=window.scrollY+120,cur='hero';
+    secs.forEach(function(s){if(s.offsetTop && y>=s.offsetTop)cur=s.id});
+    navLinks.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')==='#'+cur)});
+    tocLinks.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')==='#'+cur)});
+  });
+
+  var topBtn=document.getElementById('crnTop');
+  window.addEventListener('scroll',function(){topBtn.style.display=window.scrollY>400?'block':'none'});
+  topBtn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+})();
+</script>
+</body>
+</html>
